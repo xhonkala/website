@@ -1,0 +1,204 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #ffffff;
+  /* Start white as requested */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+#murmuration-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#ui-layer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  pointer-events: none;
+  /* Let clicks pass through to canvas if needed */
+  color: #1a1a1a;
+  /* Dark text on white background */
+  mix-blend-mode: difference;
+  /* Cool effect for text over birds */
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 0.5s;
+  margin-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 1s;
+}
+
+nav a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  /* Re-enable clicks */
+}
+
+nav a:hover {
+  border-color: #1a1a1a;
+  letter-spacing: 0.1em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content Page Styles */
+.content-page {
+  display: block;
+  /* Reset flex from body */
+  overflow: auto;
+  /* Allow scrolling */
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #000;
+}
+
+.content-page h1 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  opacity: 1;
+  /* Override opacity 0 from main h1 */
+  animation: none;
+  /* Override animation */
+  transform: none;
+}
+
+.content-page h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.content-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.link-list li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.link-list a {
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.2s;
+}
+
+.link-list a:hover {
+  border-color: #000;
+}
+
+.date {
+  display: block;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+article {
+  margin-bottom: 4rem;
+}
+
+article h2 {
+  border: none;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+article h2 a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+article h2 a:hover {
+  text-decoration: underline;
+}
