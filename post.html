@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post - Alexander Honkala</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Additional styles for markdown content in posts */
+        .post-content h2 {
+            margin-top: 2rem;
+            border-bottom: none;
+        }
+
+        .post-content ul,
+        .post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .post-content strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="container">
+        <header>
+            <a href="writing.html" class="back-link">← Back to Writing</a>
+            <h1 id="post-title">Loading...</h1>
+        </header>
+        <main id="post-content" class="post-content">
+            <!-- Content will be injected here -->
+        </main>
+    </div>
+    <script type="module">
+        import { marked } from 'marked';
+
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('slug');
+
+        if (!slug) {
+            document.getElementById('post-title').innerText = 'Post Not Found';
+            document.getElementById('post-content').innerHTML = '<p>No post specified.</p>';
+        } else {
+            fetch(`posts/${slug}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Post not found');
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Basic frontmatter extraction (very simple, assumes first lines are title/date if formatted specific way, 
+                    // but for now we'll just render the whole thing and let the markdown H1 be the title if we want, 
+                    // or strip it. Let's just render it all for simplicity, maybe hide the existing H1 if the markdown has one).
+
+                    // Actually, let's just parse the markdown.
+                    // If the markdown starts with an H1, we can use that as the page title.
+
+                    const html = marked.parse(markdown);
+                    document.getElementById('post-content').innerHTML = html;
+
+                    // Try to find an H1 in the rendered content to update the header
+                    const h1 = document.querySelector('#post-content h1');
+                    if (h1) {
+                        document.getElementById('post-title').innerText = h1.innerText;
+                        h1.style.display = 'none'; // Hide the duplicate H1
+                        document.title = `${h1.innerText} - Alexander Honkala`;
+                    } else {
+                        document.getElementById('post-title').innerText = 'Untitled Post';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('post-title').innerText = 'Error';
+                    document.getElementById('post-content').innerHTML = '<p>Could not load post. It might not exist.</p>';
+                });
+        }
+    </script>
+</body>
+
+</html>
