@@ -1,0 +1,416 @@
+# Need & Solution Specification Framework
+
+NB: this is an old thinking framework trying to distill a lot of things I'd learned into a more actionable biotech project evaluation map. Has not been updated since ~2019. May be updated for how incoming trends in ML, automation, and regulatory changes affect this.
+
+- 1. Need Specification
+    - a. Need Identity
+        - i. Framework: Describe need @ 5 levels of understanding: grandma, undergrad in field, graduate student in field, professor near field, industry vet in field
+        - ii. Need Components
+            - 1. Clinical manifestations and differential diagnosis criteria
+                - a. Symptoms and etiology
+                    - i. Prodromes, heredity, and exposure risks
+                    - ii. Symptoms that motivate patients to seek care
+                    - iii. Disease progression characteristics
+                    - iv. What we know about molecular-, cell-, organ- and tissue-level etiologies
+                    - v. History of pathology
+                        - 1. Common patient histories
+                        - 2. History of medical model of understanding, detecting, and treating the condition
+                - b. Patient populations affected
+                    - i. Size, trends, locations, other characteristics
+                    - ii. Heterogeneity of disease stage and symptoms @ diagnosis
+                    - iii. Epidemiology
+                - c. Differential diagnosis discriminatory criteria
+                    - i. Inclusionary criteria and tests
+                    - ii. Exclusionary criteria and tests
+                    - iii. Common misdiagnoses
+                    - iv. Is barbarian knowledge on diagnosis available from experienced doctors?
+                    - v. Prognostic correlations
+                - d. Setting / implementation of care
+                - e. High-level trends and risks
+                    - i. Risk factors in health
+                    - ii. Policy
+                    - iii. Economic
+            - 2. Mechanisms
+                - a. Molecular interactions – known + putative
+                - b. Cellular populations involved
+                    - i. Homeostatic function of each
+                    - ii. Function in disease / pathology area for each
+                    - iii. Response to inflammation for each
+                    - iv. Known significant interactions
+                    - v. How each would try to return to homeostasis
+                - c. Tissues and organ systems affected
+                - d. Patient heterogeneity
+                    - i. GWAS, OMIM, and ClinVar results
+                    - ii. Differences in disease presentation
+                    - iii. Common co-morbidities
+                    - iv. Environmental and lifestyle risks
+                    - v. Disease state at the time of diagnosis
+                    - vi. Side effect patterns by co-morbidity, polypharmacology, incidence in given backgrounds
+                    - vii. Differences in response to current treatment
+                    - viii. Access to care / clinical experience
+                    - ix. Idiopathic forms of the disease
+            - 3. Current treatments / solutions to need
+                - a. Efficacy of current treatments
+                    - i. Disease stabilization / progression / regression
+                        - 1. Long-term efficacy
+                        - 2. Long-term patient adherence
+                    - ii. Side effect profiles
+                    - iii. History of indications each treatment approved for
+                    - iv. Interactions and effects in co-treatment
+                    - v. Polypharmacology of treatment with emphasis on treatments used for co-morbidities
+                    - vi. Criteria upon which previous / current solutions were granted market approval
+                    - vii. Traditional medicine and supplements used for the condition
+                - b. Mechanism of action of current treatments, including hypotheses when MOA has not been directly shown
+                - c. IP ownership landscape
+                    - i. Architecture of claims
+                    - ii. Scope and nature of accepted inventive steps
+                    - iii. Unprotected prior art
+                    - iv. What "skilled in the art of" would mean for this particular field
+                    - v. Patentability criteria of past, present, and emerging solutions if obtainable
+                - d. Mfg capacity landscape
+                    - i. cGMP requirements for the composition of matter
+                    - ii. Identify any rare components / equipment needed
+                - e. PBM metrics on solutions: scheduling, coverage, performance
+        - iii. Need Ecosystem
+            - 1. Affected parties
+                - a. Patient characteristics
+                - b. Patient group advocacy
+                - c. Community health impacts
+            - 2. Morbidity / mortality costs
+            - 3. Costs to affected parties
+            - 4. Adjacent opportunities currently infeasible
+            - 5. Infrastructure
+            - 6. Systems in which the need currently exists / blocks some solution
+                - a. Academic research models, methods, etiology debates, diagnostics development / biomarker search
+                - b. Start-ups attempting to solve same or similar problem
+                - c. Attempts by larger biotech/pharma to solve problem
+                - d. Clinical manifestation and management of the problem
+                - e. Regulatory oversight of previous solutions / precedents
+                    - i. Evolution of regulatory standards for mgmt. of solution precedents
+                - f. BRICS and developing markets perspective
+    - b. Stakeholder Perspectives on Need, for each: motivations, fears, profits, losses, QALY calculations, cost-benefit considerations
+        - i. Patients and families
+        - ii. Doctors and clinical staff
+        - iii. Insurers and pharmacy benefit managers
+        - iv. Venture capitalists during solution precedents
+        - v. Founders involved in previous attempts to solve
+        - vi. Patient advocacy groups involved in research, lobbying, or clinical education
+        - vii. Clinical educators
+        - viii. Diagnostic test makers and lab types
+        - ix. Biotech / pharma companies
+        - x. FDA / EMA
+        - xi. Other countries' regulatory bodies / health systems
+    - c. Need Precedents
+        - i. Previous models of need – how was it recognized by:
+            - 1. Clinicians
+            - 2. Advocacy groups
+            - 3. Scientists
+            - 4. Pharma
+            - 5. FDA, CDC
+            - 6. Epidemiological trends
+            - 7. Environmental risk factors
+            - 8. Genetic risk factors
+            - 9. Subpopulations where need is particularly prevalent
+        - ii. Treatment advancement precedents in field of need
+        - iii. Key scientific advancements in understanding / articulation / mechanism of need
+        - iv. Technological progress realized in previous evolution of need recognition or treatment options / efficacy
+        - v. Major revisions to diagnostic criteria
+    - d. Critical Gaps in Progress on Need
+        - i. Etiological unknowns
+        - ii. Druggability
+        - iii. Technological development
+        - iv. Clinical recognition / capacity
+        - v. Commercialization barriers (mfg, capital, IP)
+        - vi. Why regulatory bodies have rejected or approved previous solutions
+    - e. Need Ecosystem
+        - i. Incentives, authorities, IP creation / licensure / transfer, KOL bodies (e.g., AACR) for and between each of the following:
+            - 1. Clinicians
+            - 2. Advocacy groups
+            - 3. Scientists
+            - 4. Pharma
+            - 5. FDA, CDC
+            - 6. Epidemiological trends
+            - 7. Environmental risk factors
+            - 8. Genetic risk factors
+        - ii. Risks to and opportunities for each from a new standard / solid progress (e.g., your solution, those of competitors) in etiological understanding, treatment possibility, new infrastructure needs and capacities, diagnostic ability, or cost / side effect differentiator
+        - iii. Strategic goals / institutional mandates of each
+        - iv. Articulation of the kind of leverage each of the above tends to be pliable to (e.g., what things cause them to move resources or collaborate?)
+    - f. Biological Complexity
+        - i. GO and PPI networks involved—take with a grain of salt
+        - ii. Current scientific, clinical, and insurer models for accepted disease etiology @ symptomatic, molecular, diagnostic, prognostic, and treatment effects / side effect risk factors
+        - iii. Alternative hypotheses for disease etiology at genetic, molecular, cellular, or tissue systems levels
+        - iv. Articulate what kinds of left-field biological disruptors of the current models could be possible
+        - v. Current literature of patient heterogeneity and genetic risk variants
+        - vi. Common comorbidities for target disease / condition
+        - vii. Variance in prognostic outlook and significant prognostic signals / efforts to find such prognostic signatures
+        - viii. Involvement of the immune system
+    - g. Economics of Need
+        - i. Patient costs
+        - ii. Insurer costs
+        - iii. Medical costs (how many specialists involved)
+        - iv. Typical costs for precedents / prior solutions
+        - v. Epidemiological impact
+- 2. Solution Specification
+    - a. Describe the current solution(s) to the problem @ 5 levels of understanding: grandma, undergrad in field, graduate student in field, professor in field, industry vet in field
+    - b. Imagine and articulate the ideal, non-resource-constrained solution to the need
+        - i. What would it consist of? Drugs, biomarkers, assays, production techniques, cell types, biopsies, co-treatments?
+        - ii. How would it work?
+        - iii. How would it be used?
+        - iv. Which patients would it work for and how would they be identified or treated in the clinic?
+        - v. How would it impact patients' lives?
+        - vi. How would it impact doctors and clinical staff?
+        - vii. How would it be made?
+        - viii. How would it impact insurers or pharmacy benefit managers?
+        - ix. What would regulators think about it? What aspects would they be most and least worried about?
+        - x. How would potential competitors in pharma/biotech think of it?
+        - xi. What additional benefits would the solution give?
+    - c. Describe the difference between Sections A and B
+        - i. Barriers in biological understanding
+        - ii. Barriers in technological capability
+        - iii. Lack of specific datasets, methods, tests
+    - d. Work backwards to break section C into key changes needed to realize section A with key proofs for each, including replication across models with appropriate statistical power and analysis methods
+        - i. Disease biology
+        - ii. Diagnostic tools, methods, standards
+        - iii. Technological breakthroughs: chemistry, biologics, cell therapy, gene editing, allogeneic sources, stem cell bio, delivery, sequencing, molecular probes, biologics mfg. etc
+        - iv. Clinical practice
+        - v. Regulatory oversight / new regulatory ground
+    - e. Current Status – update as work progresses
+        - i. Preliminary data
+            - 1. Put data together in a deck and update it as new data emerges
+                - a. Hypothesis → methods → results → interpretation
+                    - i. Include risks retired → alternative interpretations of data → new risks introduced
+            - 2. How well current data accords with previous literature
+            - 3. Internal hypothesis model of system and treatment effect
+            - 4. Key risks retired: mechanistic, human sample, diverse human samples, immunologically-complete animal model, dose-exposure relationship, toxicology, PKPD, off-target effects
+            - 5. Narrative arc of data: significance, innovation, overarching hypothesis, key findings, their meaning, and critical next questions
+        - ii. Ongoing work
+            - 1. Key proofs being obtained
+            - 2. Work sites, capacities thereof
+            - 3. Collaborators
+        - iii. Intellectual property status
+            - 1. Inventors and affiliations + motivations if necessary
+            - 2. Current IP status: provisional, filed, perfected
+            - 3. List of prior disclosures, even in confidential environment
+            - 4. Freedom to operate analysis
+            - 5. Patentability analysis
+        - iv. Stakeholder engagement
+            - 1. Key questions, findings, and perspectives from discussions / interviews with:
+                - a. Patients / patient advocates
+                - b. Doctors in the field
+                - c. KOL scientists
+                - d. Insurers (when available)
+                - e. Regulators (when available)
+                    - i. Seek perspectives of colleagues working on similar projects in EMA, Japan, BRICS
+        - v. Articulate difference between E and B to generate milestones and events that help the company formulate and communicate strategy
+            - 1. Organize by which differences most likely to be altered by technical progress
+            - 2. Organize potential generations of the solution to be built
+                - a. Minimal needed features for launch (clinical trials)
+                    - i. How it needs to work
+                        - 1. Define critical quality attributes
+                        - 2. Define critical performance characteristics
+                        - 3. Potential side effects by severity, including etiology, detection method, and risk to patients
+                    - ii. How it needs to be made / delivered
+                        - 1. Supply chain and mfg. / delivery environment
+                - b. Value-adding parameters
+                    - i. What those parameters consist of
+                        - 1. Clinical trials: biomarkers, companion diagnostics, non-invasive data sources
+                        - 2. Additional disease indications
+                        - 3. Potential combination treatments
+                        - 4. Infrastructure investment pay-offs
+                        - 5. Datasets acquired and interpreted
+                    - ii. Who would find each parameter more valuable: partners, regulators, others
+    - f. Key Milestones
+        - i. Data needed to file pivotal IP
+        - ii. Data needed for seminal publications
+        - iii. Data needed for strategic partnerships
+        - iv. Data needed to file IND
+        - v. Data needed to begin Phase 0/1
+        - vi. Data needed for market approval
+        - vii. Data / success needed for IPO / M&A
+    - g. TPP
+        - i. Indications and usage (clinical target, molecular target, expected effects)
+        - ii. Dosage and administration (PKPD profile needed, if estimable)
+        - iii. Dosage forms and strengths ( + co-treatments)
+        - iv. Contraindications (anticipated or measured; comorbidity risk factors)
+        - v. Warnings and precautions (potential negative outcomes / interactions)
+        - vi. Adverse reactions (anticipated range of side effects based on drug mechanism and expression of target in other cells / tissues)
+        - vii. Drug interactions (hard to predict de novo)
+        - viii. Use in specific populations (target population, additional patients that could benefit)
+        - ix. Drug abuse and dependence
+        - x. Overdosage (worst case overtreatment effects)
+        - xi. Description
+            - 1. Composition of matter
+            - 2. Indicated use
+            - 3. Clinical practice
+            - 4. Formulation
+            - 5. Adverse event / side effects monitoring
+        - xii. Clinical pharmacology (PKPD, biodistribution, dose-exposure, excretion)
+        - xiii. Nonclinical toxicology
+- 3. Translational Plan
+    - a. Preclinical mechanistic studies
+        - i. List of disease models, features of human disease it recapitulates, idiosyncratic risks it introduces for each
+            - 1. Cell lines / iPSCs
+            - 2. Organoids
+            - 3. Primary explants
+            - 4. Primary cell organoids
+            - 5. GEMMs
+            - 6. Xenotransplantation
+            - 7. Chemical or genetic exposure
+        - ii. Endpoints necessary to show MOA
+            - 1. On-target efficacy
+            - 2. Off-target effects
+            - 3. Side effects
+            - 4. Optimization opportunities
+        - iii. Correlation ain't enough, knock something out!
+        - iv. Necessity and sufficiency of molecular targets
+        - v. Dose-exposure relationship
+    - b. IND prep
+        - i. Disease models and effect endpoints
+        - ii. Safety profile: ADMETox
+        - iii. PKPD
+        - iv. Drug metabolism
+        - v. cGMP mfg pilot
+        - vi. Biomarker / companion diagnostic development
+            - 1. Determine how biomarkers / dx to be used and whether / when investigational device exemption needs to be applied for
+    - c. Regulatory engagement
+        - i. Prev regulatory standards for comparable products
+        - ii. Relevant industry guidances and press releases
+        - iii. Pre-IND meeting planning
+        - iv. Protocol development / change / update procedure
+        - v. IRB oversight and composition planning
+    - d. Clinical trial planning
+        - i. Site selection
+        - ii. Protocol development
+            - 1. Inclusion criteria
+            - 2. Exclusion criteria
+        - iii. Protocol management / implementation
+        - iv. Chain of custody for samples
+        - v. Endpoints to be run on samples
+        - vi. Data & access / encryption mgmt. strategy
+    - e. Phase 0 or diagnostic sensitivity
+    - f. Phase 1 or diagnostic specificity
+    - g. Phase 2
+    - h. Phase 3
+    - i. Additional indications
+    - j. Full TPP, update at each stage
+- 4. Business Plan
+    - a. Value Model
+        - i. Significance statement
+        - ii. Innovation statement
+        - iii. Overarching hypothesis: if successful, then ________
+        - iv. Value to patients
+        - v. Value to doctors
+        - vi. Value to clinical practice
+        - vii. Value to pharmacy benefit managers / insurers
+        - viii. Regulatory or professional body recognition of problem urgency, scope, impact, etc
+        - ix. Market value
+            - 1. Present market for drugs used currently
+            - 2. Market segmentation
+            - 3. Parameter space of all possible solutions to the need
+            - 4. Competitor pipelines w/ analysis
+            - 5. Future market trends
+        - x. Market differentiation
+            - 1. Features / fronts by which competition plays out
+            - 2. Infrastructural features that enable market access
+            - 3. Proactive regulatory engagement
+            - 4. Treatment delivery / deployment
+            - 5. Partnering strategy—hospitals, patient advocacy groups, collaborators, academic centers, regulatory bodies, etc.
+        - xi. Intellectual property
+            - 1. Freedom to operate analysis
+            - 2. Patentability analysis
+            - 3. Licensing considerations
+    - b. Project Model
+    - c. Need Model
+        - i. Etiology Model: molecular, cell, tissue, organ, host, patient-to-patient variability
+        - ii. Intervention Context Model (Clinical Perspectives)
+            - 1. Diagnostic criteria and common misdiagnoses
+            - 2. First-line treatments and efficacy monitoring
+            - 3. Second-line treatments
+            - 4. Monitoring of disease progression
+            - 5. Clinical setting
+            - 6. Healthcare professional education, training, experience
+            - 7. Detection of clinical complications of treatment
+        - iii. Intervention Model Mechanism of Action
+            - 1. Drug MOA by cell type, genetic background, disease stage – can be hypothetical but should include what kinds of data can confirm or reject when possible
+            - 2. On-target activity and effects
+            - 3. Off-target activity and effects (may be putative)
+            - 4. How treatment alters disease etiology, progression, co-morbidity
+            - 5. Long-term usage
+        - iv. Addressable Population Model
+            - 1. Epidemiological trends by geographic area and environmental exposure
+            - 2. Genetic risk variants
+            - 3. Environmental risk variations
+            - 4. Patient heterogeneity
+                - a. Symptomology
+                - b. Demographic
+                - c. Comorbidity background
+            - 5. Accessibility of health care
+        - v. Alternative models and what new scientific data would validate them
+    - d. Customer Model
+        - i. Patient
+        - ii. Doctor
+        - iii. Insurer
+        - iv. PBM
+        - v. Pharma
+        - vi. FDA / EMA
+        - vii. Patient advocate groups
+    - e. Competitor Model
+        - i. Competitor landscape
+            - 1. Pipelines
+            - 2. Partnerships
+            - 3. Star personnel & histories
+            - 4. IP opportunities
+            - 5. Funding and development stage
+        - ii. Strategic vulnerabilities in ecosystem incumbents
+            - 1. Pipeline failures
+            - 2. M&A in the same area that didn't work out
+            - 3. Areas that they have a lot of marketing, distribution, or manufacturing investments concentrated
+    - f. Regulatory Model
+        - i. Precedents for regulatory engagement for similar projects
+        - ii. Relevant regulatory guidances and interactions
+        - iii. List of anticipated regulatory concerns—update after meetings
+    - g. Drivers & Sinks
+        - i. Value Drivers
+        - ii. Need Drivers
+        - iii. Progress/Success Drivers
+        - iv. Risk Drivers
+        - v. Competition Drivers
+    - h. Present Value Justification
+        - i. Data
+        - ii. IP
+        - iii. rNPV for products based on market trends
+        - iv. Partnership goals
+        - v. Pipeline
+    - i. Future Value Justification
+        - i. Clinical data
+        - ii. Pipeline development
+        - iii. Scientific / medical leadership
+        - iv. Partnership strategy
+        - v. Exit options
+    - j. Risk Management Strategy
+        - i. How could your solution fail?
+        - ii. What can you do to detect early signs of a failure point?
+        - iii. What's your plan for fixing them?
+        - iv. Which risks get retired at which milestones and why
+        - v. Which aspects of the solution, opportunity, or translation process are concretely-established medical science and which are less well-settled and subject to potential changes?
+- 5. Emergent Opportunities (things that become possible as 1-4 progress)
+    - a. Synergies / Cantilevers – where meeting a given milestone significantly lowers the cost to entry of an additional value-creating opportunity
+    - b. Field Futurism – where the underlying scientific frontiers are headed and how to make win-wins out of project planning for current priorities and being able to realize emerging opportunities later (e.g., building specialized infrastructure that can find broader application after a given tech bottleneck is surpassed)
+    - c. Leftfield Biological Realities
+    - d. Collaborations and Partnerships
+    - e. Patient Advocacy
+    - f. Platformization
+    - g. Swarm Mode
+    - h. Human Benefits!
+        - i. Mortality reduced
+        - ii. Lost economic value restored
+        - iii. Quality of life improvements
+        - iv. What happens to health when your patents expire or your tech becomes cheap and easy?
+        - v. Plan to actually interact with the human beings whose lives your efforts will touch—do not stay away from clinics, patient groups, or families
+    - i. Application to emerging markets
+    - j. Care Support
+        - i. Biomarkers for diagnosis
+        - ii. Biomarkers for treatment monitoring and follow-up
+        - iii. Digital infrastructure
+        - iv. Clinical IT integration and extension
+        - v. Liability reduction (e.g., gene therapy monitoring for pay-for-performance models)

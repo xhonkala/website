@@ -5,13 +5,8 @@ This is the personal website of Alexander Honkala, featuring a generative art ba
 
 ## Navigation
 - [Research](research.html) - Links to academic and personal research.
-- [Likes](likes.html) - Curated list of interests and inspirations.
-- [Writing](writing.html) - Blog posts and essays.
+- [Hyperfixations](hyperfixations.html) - Curated list of interests and inspirations.
+- [Thinking](thinking.html) - Blog posts and essays.
 
 ## Context
-Alexander Honkala is a researcher and developer interested in generative art, complex systems, and web technologies. This site serves as a digital garden and portfolio.
-
-## Technical Details
-- Built with Vite and Vanilla JS.
-- Murmuration effect uses Craig Reynolds' Boids algorithm with spatial grid optimization.
-- Interactive elements include mouse attraction and UI repulsion.
+Alexander Honkala is a scientist interested in complex adaptive systems with a background in immunology and drug development, now working in manifold learning for large biomedical datasets with the goals of predicting perturbations and cell interactions. He is curious about biological computing/goo computing, regulatory hyperobjects in complex multi-level systems, opportunities to improve clinical standards of care, emergent phenomena, and other minds. He can be contacted with compelling research questions or data opportunities, particularly if they help address treatment resistance in diseases that adapt over time, medical countermeasures for acute exposures, and predicting/steering complex biological systems.
