@@ -33,7 +33,7 @@
 <body class="content-page">
     <div class="container">
         <header>
-            <a href="writing.html" class="back-link">← Back to Writing</a>
+            <a href="thinking.html" class="back-link">← Back to Thinking</a>
             <h1 id="post-title">Loading...</h1>
         </header>
         <main id="post-content" class="post-content">
@@ -50,7 +50,7 @@
             document.getElementById('post-title').innerText = 'Post Not Found';
             document.getElementById('post-content').innerHTML = '<p>No post specified.</p>';
         } else {
-            fetch(`posts/${slug}.md`)
+            fetch(`/posts/${slug}.md`)
                 .then(response => {
                     if (!response.ok) throw new Error('Post not found');
                     return response.text();
