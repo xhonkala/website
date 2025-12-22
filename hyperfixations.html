@@ -6,7 +6,6 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyperfixations - Alexander Honkala</title>
-    <link rel="stylesheet" href="/src/style.css">
 </head>
 
 <body class="content-page">
@@ -19,25 +18,7 @@
             <!-- Content loaded from markdown -->
         </main>
     </div>
-    <script type="module">
-        import { marked } from 'marked';
-
-        fetch('/hyperfixations/content.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById('content').innerHTML = html;
-
-                // Hide duplicate H1 if present
-                const h1 = document.querySelector('#content h1');
-                if (h1) h1.style.display = 'none';
-            })
-            .catch(err => {
-                console.error(err);
-                document.getElementById('content').innerHTML = '<p>Could not load content.</p>';
-            });
-    </script>
-    <script type="module" src="/src/night-mode.js"></script>
+    <script type="module" src="/src/hyperfixations.js"></script>
 </body>
 
 </html>
