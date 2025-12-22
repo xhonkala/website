@@ -10,11 +10,11 @@
 - Rucker's [The Lifebox, the Seashell, and the Soul](https://www.goodreads.com/book/show/274042.The_Lifebox_the_Seashell_and_the_Soul)
 
 ## Fiction That Stuck
-- McAuley's The Quiet War
-- Le Guin's Five Ways to Forgiveness
-- Kim Stanley Robinson's 2312
-- Gibson's The Peripheral
-- Rucker's Ware Tetralogy
+- McAuley's *"The Quiet War"*
+- Le Guin's *"Five Ways to Forgiveness"*
+- Kim Stanley Robinson's *"2312"*
+- Gibson's *"The Peripheral"*
+- Rucker's *"Ware Tetralogy"*
 
 ## Tools I Love
 - Claude Code + VSCode
