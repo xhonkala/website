@@ -22,7 +22,7 @@
     <script type="module">
         import { marked } from 'marked';
 
-        fetch('research/content.md')
+        fetch('/research/content.md')
             .then(response => response.text())
             .then(markdown => {
                 const html = marked.parse(markdown);

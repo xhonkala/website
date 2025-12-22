@@ -22,7 +22,7 @@
     <script type="module">
         import { marked } from 'marked';
 
-        fetch('hyperfixations/content.md')
+        fetch('/hyperfixations/content.md')
             .then(response => response.text())
             .then(markdown => {
                 const html = marked.parse(markdown);
