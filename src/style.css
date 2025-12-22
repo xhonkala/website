@@ -101,6 +101,8 @@ nav a:hover {
   /* Reset flex from body */
   overflow: auto;
   /* Allow scrolling */
+  height: auto;
+  min-height: 100vh;
   background-color: #ffffff;
   color: #1a1a1a;
   padding: 4rem 2rem;
