@@ -1,12 +1,11 @@
 # Hyperfixations
 
-## Inspiration
+## General Inspiration
 
-- [Craig Reynolds' Boids](https://www.complex.com/style/2016/01/craig-reynolds-boids)
-- [The Nature of Code](https://natureofcode.com/)
-- [Three.js](https://threejs.org/)
+- Hildegaard von Bingen's viriditas, especially as expressed in [Ordo Virtutum](https://www.youtube.com/watch?v=M9cvH9TFyr8&list=RDM9cvH9TFyr8&start_radio=1)
+- von Bertalaffny's [General Systems Theory](https://www.ebsco.com/research-starters/history/general-systems-theory)
+- Rucker's [The Lifebox, the Seashell, and the Soul](https://www.goodreads.com/book/show/274042.The_Lifebox_the_Seashell_and_the_Soul)
 
 ## Reading
 
-- "Permutation City" by Greg Egan
-- "Gödel, Escher, Bach" by Douglas Hofstadter
+- where to even start?
