@@ -11,7 +11,7 @@ There are a surprisingly large number of situations in which we don't have much 
 + Hematopoiesis alterations in clusters of co-morbid conditions
 + Autoantibody repertoires throughout life and correlates with changes in antigen expression in medullary thymic epithelial cells
 + Endocrine changes after deliberate induction of ketogenic or fasted states
-+ Hypothalamal stem cell activity after hermetic insults, including exosome profiling
++ Hypothalamal stem cell activity after hormetic insults, including exosome profiling
 + Exocrine cell type functional and regulatory profiling under various stressor conditions (e.g., goblet cells in GERD)
 + Limits on cell stress responses in various cell types: how close can they come to apoptotic shutdown but still recover? What signaling or metabolic substrates modify recoverability speed or penetrance?
 
