@@ -12,6 +12,30 @@ canvas.height = height;
 
 const flock = new Flock(width, height);
 
+// Night mode detection based on Pacific Time
+function isNightInPacific() {
+  const now = new Date();
+  const pacificTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const hour = pacificTime.getHours();
+  // Night is between 7pm (19) and 6am (6)
+  return hour >= 19 || hour < 6;
+}
+
+let isNightMode = isNightInPacific();
+
+function updateNightMode() {
+  isNightMode = isNightInPacific();
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  } else {
+    document.body.classList.remove('night-mode');
+  }
+}
+
+// Initial check and periodic updates (every minute)
+updateNightMode();
+setInterval(updateNightMode, 60000);
+
 // Add initial boids
 for (let i = 0; i < 1500; i++) {
   flock.addBoid();
@@ -25,7 +49,7 @@ function animate() {
 
   // Update and draw flock
   flock.update(mouse, repulsionTargets);
-  flock.draw(ctx);
+  flock.draw(ctx, isNightMode);
 
   requestAnimationFrame(animate);
 }

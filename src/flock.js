@@ -34,9 +34,9 @@ export class Flock {
         }
     }
 
-    draw(ctx) {
+    draw(ctx, isNightMode = false) {
         for (let boid of this.boids) {
-            boid.draw(ctx);
+            boid.draw(ctx, isNightMode);
         }
     }
 

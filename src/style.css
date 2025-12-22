@@ -40,10 +40,7 @@ body {
   text-align: center;
   pointer-events: none;
   /* Let clicks pass through to canvas if needed */
-  color: #1a1a1a;
-  /* Dark text on white background */
-  mix-blend-mode: difference;
-  /* Cool effect for text over birds */
+  color: #000000;
 }
 
 h1 {
@@ -68,7 +65,7 @@ nav {
 }
 
 nav a {
-  color: #1a1a1a;
+  color: #000000;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 300;
@@ -82,7 +79,7 @@ nav a {
 }
 
 nav a:hover {
-  border-color: #1a1a1a;
+  border-color: #000000;
   letter-spacing: 0.1em;
 }
 
@@ -201,4 +198,66 @@ article h2 a {
 
 article h2 a:hover {
   text-decoration: underline;
+}
+
+/* Night Mode Styles */
+body.night-mode {
+  background-color: #0a1628;
+}
+
+body.night-mode #ui-layer {
+  color: #ffffff;
+}
+
+body.night-mode nav a {
+  color: #ffffff;
+}
+
+body.night-mode nav a:hover {
+  border-color: #ffffff;
+}
+
+body.night-mode.content-page {
+  background-color: #0a1628;
+  color: #ffffff;
+}
+
+body.night-mode.content-page h1 {
+  color: #ffffff;
+}
+
+body.night-mode .back-link {
+  color: #aaa;
+}
+
+body.night-mode .back-link:hover {
+  color: #fff;
+}
+
+body.night-mode.content-page p,
+body.night-mode .content-page p {
+  color: #ccc;
+}
+
+body.night-mode.content-page h2,
+body.night-mode .content-page h2 {
+  border-bottom-color: #333;
+  color: #ffffff;
+}
+
+body.night-mode .link-list a {
+  color: #ffffff;
+  border-bottom-color: #555;
+}
+
+body.night-mode .link-list a:hover {
+  border-color: #fff;
+}
+
+body.night-mode article h2 a {
+  color: #ffffff;
+}
+
+body.night-mode .date {
+  color: #888;
 }

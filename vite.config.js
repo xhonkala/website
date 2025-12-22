@@ -2,14 +2,15 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: '/alexander-honkala-site/',
+    base: '/website/',
     build: {
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
+                about: resolve(__dirname, 'about.html'),
                 research: resolve(__dirname, 'research.html'),
-                likes: resolve(__dirname, 'likes.html'),
-                writing: resolve(__dirname, 'writing.html'),
+                hyperfixations: resolve(__dirname, 'hyperfixations.html'),
+                thinking: resolve(__dirname, 'thinking.html'),
                 post: resolve(__dirname, 'post.html'),
             },
         },
