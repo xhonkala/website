@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Research - Alexander Honkala</title>
+    <title>Hyperfixations - Alexander Honkala</title>
     <link rel="stylesheet" href="/src/style.css">
 </head>
 
@@ -13,7 +13,7 @@
     <div class="container">
         <header>
             <a href="index.html" class="back-link">← Back to Home</a>
-            <h1 id="page-title">Research</h1>
+            <h1 id="page-title">Hyperfixations</h1>
         </header>
         <main id="content" class="markdown-content">
             <!-- Content loaded from markdown -->
@@ -22,7 +22,7 @@
     <script type="module">
         import { marked } from 'marked';
 
-        fetch('research/content.md')
+        fetch('hyperfixations/content.md')
             .then(response => response.text())
             .then(markdown => {
                 const html = marked.parse(markdown);
