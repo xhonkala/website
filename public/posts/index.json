@@ -1,14 +1,21 @@
 [
   {
-    "slug": "biotech-evaluation",
-    "title": "Biotech Evaluation",
-    "date": "2025-11",
-    "description": "Evaluating biotech opportunities"
+    "slug": "end-of-cancer",
+    "title": "End of Cancer",
+    "date": "2025-12",
+    "description": "End of Cancer"
   },
   {
     "slug": "dataset-wishlist",
     "title": "Dataset Wishlist",
     "date": "2025-12",
-    "description": "Datasets I wish existed"
+    "description": "Datasets I Wish Existed"
+  },
+  {
+    "slug": "biotech-evaluation",
+    "title": "Biotech Evaluation",
+    "date": "2025-11",
+    "description": "Evaluating Biotech Opportunities"
   }
+
 ]
