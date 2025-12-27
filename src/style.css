@@ -155,6 +155,30 @@ nav a:hover {
   margin-bottom: 1.5rem;
 }
 
+.content-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.content-page th,
+.content-page td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.content-page th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.content-page tr:hover {
+  background-color: #fafafa;
+}
+
 .link-list {
   list-style: none;
   padding: 0;
@@ -262,4 +286,17 @@ body.night-mode article h2 a {
 
 body.night-mode .date {
   color: #888;
+}
+
+body.night-mode .content-page th,
+body.night-mode .content-page td {
+  border-color: #333;
+}
+
+body.night-mode .content-page th {
+  background-color: #1a2a3a;
+}
+
+body.night-mode .content-page tr:hover {
+  background-color: #152030;
 }
