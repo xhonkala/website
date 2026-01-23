@@ -8,6 +8,8 @@
 - Barabási's early work on network medicine and endophenotypes into Tiago Peixoto's [graph theory blog](https://skewed.de/lab/blog.html)
 - Scannell on predictive validity in drug development frameworks
 - Rucker's [The Lifebox, the Seashell, and the Soul](https://www.goodreads.com/book/show/274042.The_Lifebox_the_Seashell_and_the_Soul)
+- Drs. Donald A Berry on adaptive clinical trials x Robert Gatenby & Sandy Anderson on evolutionary therapy regimen design
+- Thiago Peixoto's [Inverse Complexity lab blog](https://skewed.de/lab/blog.html)
 
 ## Fiction That Stuck
 - McAuley's *"The Quiet War"*
