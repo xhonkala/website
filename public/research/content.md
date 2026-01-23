@@ -10,7 +10,8 @@
 + Next Generation Clinical Trial Design & Treatment Monitoring
 + Innovation, Translation, and Entrepreneurship Ecosystems
 
-## [Github](https://github.com/xhonkala?tab=repositories)
+## Github
+[Github](https://github.com/xhonkala?tab=repositories)
 
 ## Publications
 
