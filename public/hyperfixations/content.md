@@ -5,7 +5,7 @@
 - von Bertalanffy's [General Systems Theory](https://www.ebsco.com/research-starters/history/general-systems-theory)
 - Purcell's [Life at Low Reynolds Number](https://www.damtp.cam.ac.uk/user/gold/pdfs/purcell.pdf)
 - Monod's Chance and Necessity
-- Barabási's early work on network medicine and endophenotypes into Tiago Peixoto's [graph theory blog](https://skewed.de/lab/blog.html)
+- Barabási's early work on network medicine and endophenotypes
 - Scannell on predictive validity in drug development frameworks
 - Rucker's [The Lifebox, the Seashell, and the Soul](https://www.goodreads.com/book/show/274042.The_Lifebox_the_Seashell_and_the_Soul)
 - Drs. Donald A Berry on adaptive clinical trials x Robert Gatenby & Sandy Anderson on evolutionary therapy regimen design
