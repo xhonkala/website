@@ -301,6 +301,81 @@ body.night-mode .content-page tr:hover {
   background-color: #152030;
 }
 
+/* Collapsible aside boxes for posts */
+.post-content details.aside {
+  background-color: #f8f9fa;
+  border-left: 3px solid #aaa;
+  padding: 0;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+}
+
+.post-content details.aside summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #666;
+  font-style: italic;
+  list-style: none;
+}
+
+.post-content details.aside summary::-webkit-details-marker {
+  display: none;
+}
+
+.post-content details.aside summary::before {
+  content: "▸ ";
+  font-style: normal;
+}
+
+.post-content details.aside[open] summary::before {
+  content: "▾ ";
+}
+
+.post-content details.aside[open] summary {
+  border-bottom: 1px solid #ddd;
+}
+
+.post-content details.aside .aside-content {
+  padding: 1rem;
+}
+
+.post-content details.aside p {
+  margin-bottom: 0.75rem;
+}
+
+.post-content details.aside p:last-child {
+  margin-bottom: 0;
+}
+
+.post-content details.aside img {
+  max-width: 100%;
+  margin: 0.75rem auto;
+  display: block;
+}
+
+body.night-mode .post-content details.aside {
+  background-color: #1a2a3a;
+  border-left-color: #4a5a6a;
+}
+
+body.night-mode .post-content details.aside summary {
+  color: #999;
+}
+
+body.night-mode .post-content details.aside[open] summary {
+  border-bottom-color: #333;
+}
+
+/* Post images */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+  display: block;
+}
+
 /* Mobile styles */
 @media (max-width: 600px) {
   h1 {

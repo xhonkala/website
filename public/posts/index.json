@@ -1,5 +1,11 @@
 [
   {
+    "slug": "adsr-perturbation-envelopes",
+    "title": "ADSR Perturbation Response Envelopes",
+    "date": "2026-02",
+    "description": "What if we modeled drug responses like synthesizer envelopes?"
+  },
+  {
     "slug": "end-of-cancer",
     "title": "End of Cancer",
     "date": "2025-12",
