@@ -3,47 +3,38 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/eye.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post - Alexander Honkala</title>
+    <meta name="description" content="A post by Alexander Honkala." />
+    <meta property="og:title" content="Post - Alexander Honkala" />
+    <meta property="og:description" content="A post by Alexander Honkala." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://alexanderhonkala.com/post.html" />
+    <meta property="og:image" content="https://alexanderhonkala.com/eye.svg" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="alternate" type="application/rss+xml" title="Alexander Honkala" href="/feed.xml" />
     <link rel="stylesheet" href="/src/style.css">
-    <style>
-        /* Additional styles for markdown content in posts */
-        .post-content h2 {
-            margin-top: 2rem;
-            border-bottom: none;
-        }
-
-        .post-content ul,
-        .post-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .post-content strong {
-            font-weight: 600;
-        }
-    </style>
 </head>
 
 <body class="content-page">
-    <div class="container">
-        <header>
-            <a href="thinking.html" class="back-link">← Back to Thinking</a>
-            <h1 id="post-title">Loading...</h1>
-        </header>
-        <main id="post-content" class="post-content">
-            <!-- Content will be injected here -->
-        </main>
+    <div class="post-layout">
+        <canvas id="rule110-canvas" class="rule110-sidebar"></canvas>
+        <div class="container">
+            <header>
+                <a href="thinking.html" class="back-link">← Back to Thinking</a>
+                <h1 id="post-title">Loading...</h1>
+                <div id="post-tags" class="post-tags"></div>
+            </header>
+            <main id="post-content" class="post-content">
+                <!-- Content will be injected here -->
+            </main>
+        </div>
     </div>
     <script type="module">
         import { marked } from 'marked';
+        import { initRule110 } from '/src/rule110.js';
 
-        // Allow HTML in markdown
         marked.setOptions({
             breaks: false,
             gfm: true
@@ -56,37 +47,51 @@
             document.getElementById('post-title').innerText = 'Post Not Found';
             document.getElementById('post-content').innerHTML = '<p>No post specified.</p>';
         } else {
-            fetch(`/posts/${slug}.md`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Post not found');
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Basic frontmatter extraction (very simple, assumes first lines are title/date if formatted specific way, 
-                    // but for now we'll just render the whole thing and let the markdown H1 be the title if we want, 
-                    // or strip it. Let's just render it all for simplicity, maybe hide the existing H1 if the markdown has one).
+            // Fetch post content and index.json in parallel
+            Promise.all([
+                fetch(`/posts/${slug}.md`).then(r => {
+                    if (!r.ok) throw new Error('Post not found');
+                    return r.text();
+                }),
+                fetch('/posts/index.json').then(r => r.json()).catch(() => [])
+            ]).then(([markdown, posts]) => {
+                const html = marked.parse(markdown);
+                document.getElementById('post-content').innerHTML = html;
 
-                    // Actually, let's just parse the markdown.
-                    // If the markdown starts with an H1, we can use that as the page title.
+                // Extract title from H1
+                const h1 = document.querySelector('#post-content h1');
+                if (h1) {
+                    document.getElementById('post-title').innerText = h1.innerText;
+                    h1.style.display = 'none';
+                    document.title = `${h1.innerText} - Alexander Honkala`;
+                    // Update OG tags dynamically
+                    const ogTitle = document.querySelector('meta[property="og:title"]');
+                    const ogDesc = document.querySelector('meta[property="og:description"]');
+                    if (ogTitle) ogTitle.content = `${h1.innerText} - Alexander Honkala`;
+                } else {
+                    document.getElementById('post-title').innerText = 'Untitled Post';
+                }
 
-                    const html = marked.parse(markdown);
-                    document.getElementById('post-content').innerHTML = html;
+                // Render tags
+                const postData = posts.find(p => p.slug === slug);
+                if (postData && postData.tags && postData.tags.length > 0) {
+                    const tagsContainer = document.getElementById('post-tags');
+                    tagsContainer.innerHTML = postData.tags.map(tag =>
+                        `<a href="thinking.html?tag=${encodeURIComponent(tag)}" class="tag-label">${tag}</a>`
+                    ).join('');
 
-                    // Try to find an H1 in the rendered content to update the header
-                    const h1 = document.querySelector('#post-content h1');
-                    if (h1) {
-                        document.getElementById('post-title').innerText = h1.innerText;
-                        h1.style.display = 'none'; // Hide the duplicate H1
-                        document.title = `${h1.innerText} - Alexander Honkala`;
-                    } else {
-                        document.getElementById('post-title').innerText = 'Untitled Post';
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    document.getElementById('post-title').innerText = 'Error';
-                    document.getElementById('post-content').innerHTML = '<p>Could not load post. It might not exist.</p>';
-                });
+                    // Update OG description with post description
+                    const ogDesc = document.querySelector('meta[property="og:description"]');
+                    if (ogDesc && postData.description) ogDesc.content = postData.description;
+                }
+
+                // Initialize Rule 110 sidebar after content renders
+                initRule110('rule110-canvas');
+            }).catch(err => {
+                console.error(err);
+                document.getElementById('post-title').innerText = 'Error';
+                document.getElementById('post-content').innerHTML = '<p>Could not load post. It might not exist.</p>';
+            });
         }
     </script>
     <script type="module" src="/src/night-mode.js"></script>

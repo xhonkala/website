@@ -1,45 +1,23 @@
 ---
-description: Deploy the website to Vercel or GitHub Pages
+description: Deploy the website to GitHub Pages
 ---
 
-# Deployment Options
+# Deployment
 
-Since this is a static site built with Vite, you have several easy options for deployment.
+This site deploys automatically via GitHub. Just push to the repo.
 
-## Option 1: Vercel (Recommended)
-Vercel is optimized for frontend frameworks and requires zero configuration for Vite.
+## Workflow
 
-1.  **Install Vercel CLI** (optional, or use the web dashboard):
+1.  **Local preview** (optional but recommended):
     ```bash
-    npm i -g vercel
+    npm run dev
     ```
+    Check your changes at http://localhost:5173
 
 2.  **Deploy**:
-    Run the following command in your project root:
     ```bash
-    vercel
+    git add .
+    git commit -m "Your commit message"
+    git push
     ```
-    Follow the prompts (accept defaults).
-
-3.  **Production Deployment**:
-    ```bash
-    vercel --prod
-    ```
-
-## Option 2: GitHub Pages
-
-1.  **Update `vite.config.js`**:
-    If you are deploying to `https://<USERNAME>.github.io/<REPO>/`, set the base in `vite.config.js`:
-    ```javascript
-    export default {
-      base: '/<REPO>/'
-    }
-    ```
-
-2.  **Build the project**:
-    ```bash
-    npm run build
-    ```
-
-3.  **Deploy the `dist` folder**:
-    You can use a GitHub Action or manually push the `dist` folder to a `gh-pages` branch.
+    GitHub Actions handles the build and deploy automatically.

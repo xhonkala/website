@@ -8,7 +8,7 @@ export class Boid {
         this.acceleration = { x: 0, y: 0 };
         this.maxForce = 0.05; // Reduced for smoother turning
         this.maxSpeed = 2.5;  // Reduced speed as requested
-        this.size = Math.random() * 1.5 + 0.5; // Variable size for depth effect
+        this.size = Math.random() * 1.0 + 0.3; // Variable size for depth effect
         // Grey color with variation (range: 160-210 for lighter greys)
         const greyBase = Math.floor(Math.random() * 50) + 160;
         // Add slight color tint variation

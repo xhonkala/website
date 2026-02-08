@@ -17,7 +17,6 @@ function isNightInPacific() {
   const now = new Date();
   const pacificTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
   const hour = pacificTime.getHours();
-  // Night is between 7pm (19) and 6am (6)
   return hour >= 19 || hour < 6;
 }
 
@@ -32,12 +31,11 @@ function updateNightMode() {
   }
 }
 
-// Initial check and periodic updates (every minute)
 updateNightMode();
 setInterval(updateNightMode, 60000);
 
-// Add initial boids
-for (let i = 0; i < 1500; i++) {
+const boidCount = window.innerWidth < 768 ? 2000 : 5000;
+for (let i = 0; i < boidCount; i++) {
   flock.addBoid();
 }
 
@@ -46,17 +44,13 @@ let repulsionTargets = [];
 
 function animate() {
   ctx.clearRect(0, 0, width, height);
-
-  // Update and draw flock
   flock.update(mouse, repulsionTargets);
   flock.draw(ctx, isNightMode);
-
   requestAnimationFrame(animate);
 }
 
 animate();
 
-// Handle resize
 window.addEventListener('resize', () => {
   width = window.innerWidth;
   height = window.innerHeight;
@@ -65,13 +59,11 @@ window.addEventListener('resize', () => {
   flock.resize(width, height);
 });
 
-// Handle mouse move
 window.addEventListener('mousemove', (e) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
-// Handle repulsion targets
 const targets = document.querySelectorAll('.repel-target');
 targets.forEach(target => {
   target.addEventListener('mouseenter', () => {
@@ -85,11 +77,6 @@ targets.forEach(target => {
   });
 
   target.addEventListener('mouseleave', () => {
-    // Remove target (simplified logic assuming only one hover at a time or full rebuild)
-    // For robustness, filter by matching rect, but since we push/pop on enter/leave, 
-    // we can just filter out this specific one or clear if we assume single pointer.
-    // Better: Rebuild list on every frame or just manage state.
-    // Simplest robust way:
     const rect = target.getBoundingClientRect();
     repulsionTargets = repulsionTargets.filter(t => t.x !== rect.left || t.y !== rect.top);
   });
