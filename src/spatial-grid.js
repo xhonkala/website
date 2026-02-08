@@ -13,7 +13,7 @@ export class SpatialGrid {
     add(boid) {
         const col = Math.floor(boid.position.x / this.cellSize);
         const row = Math.floor(boid.position.y / this.cellSize);
-        const key = `${col},${row}`;
+        const key = col + row * this.cols;
 
         if (!this.grid.has(key)) {
             this.grid.set(key, []);
@@ -28,7 +28,7 @@ export class SpatialGrid {
 
         for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
-                const key = `${col + i},${row + j}`;
+                const key = (col + i) + (row + j) * this.cols;
                 if (this.grid.has(key)) {
                     const cellBoids = this.grid.get(key);
                     for (let k = 0; k < cellBoids.length; k++) {

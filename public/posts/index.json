@@ -3,25 +3,28 @@
     "slug": "adsr-perturbation-envelopes",
     "title": "ADSR Perturbation Response Envelopes",
     "date": "2026-02",
-    "description": "What if we modeled drug responses like synthesizer envelopes?"
+    "description": "What if we modeled drug responses like synthesizer envelopes?",
+    "tags": ["pharmacology", "systems-biology", "music"]
   },
   {
     "slug": "end-of-cancer",
     "title": "End of Cancer",
     "date": "2025-12",
-    "description": "End of Cancer"
+    "description": "End of Cancer",
+    "tags": ["oncology", "drug-development"]
   },
   {
     "slug": "dataset-wishlist",
     "title": "Dataset Wishlist",
     "date": "2025-12",
-    "description": "Datasets I Wish Existed"
+    "description": "Datasets I Wish Existed",
+    "tags": ["data", "computational-biology"]
   },
   {
     "slug": "biotech-evaluation",
     "title": "Biotech Evaluation",
     "date": "2025-11",
-    "description": "Evaluating Biotech Opportunities"
+    "description": "Evaluating Biotech Opportunities",
+    "tags": ["biotech", "drug-development"]
   }
-
 ]

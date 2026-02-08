@@ -367,6 +367,95 @@ body.night-mode .post-content details.aside[open] summary {
   border-bottom-color: #333;
 }
 
+/* Post typography (migrated from post.html inline styles) */
+.post-content h2 {
+  margin-top: 2rem;
+  border-bottom: none;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content strong {
+  font-weight: 600;
+}
+
+/* Code */
+.post-content code,
+.markdown-content code {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  font-size: 0.88em;
+  background-color: #f4f4f4;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.post-content pre,
+.markdown-content pre {
+  background-color: #f4f4f4;
+  border-left: 3px solid #ccc;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.post-content pre code,
+.markdown-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Blockquote */
+.post-content blockquote,
+.markdown-content blockquote {
+  border-left: 3px solid #ccc;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Horizontal rule */
+.post-content hr,
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+/* Night mode: code, blockquote, hr */
+body.night-mode .post-content code,
+body.night-mode .markdown-content code {
+  background-color: #1a2a3a;
+}
+
+body.night-mode .post-content pre,
+body.night-mode .markdown-content pre {
+  background-color: #1a2a3a;
+  border-left-color: #4a5a6a;
+}
+
+body.night-mode .post-content blockquote,
+body.night-mode .markdown-content blockquote {
+  border-left-color: #4a5a6a;
+  color: #999;
+}
+
+body.night-mode .post-content hr,
+body.night-mode .markdown-content hr {
+  border-top-color: #333;
+}
+
 /* Post images */
 .post-content img {
   max-width: 100%;
@@ -406,5 +495,120 @@ body.night-mode .post-content details.aside[open] summary {
   .content-page th,
   .content-page td {
     padding: 0.5rem;
+  }
+}
+
+/* Tag bar */
+.tag-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tag-chip {
+  background: none;
+  border: 1px solid #999;
+  color: #555;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag-chip:hover {
+  border-color: #000;
+  color: #000;
+}
+
+.tag-chip.active {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+.tag-label {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+a.tag-label:hover {
+  color: #000;
+}
+
+.post-tags {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Night mode tags */
+body.night-mode .tag-chip {
+  border-color: #555;
+  color: #aaa;
+}
+
+body.night-mode .tag-chip:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+body.night-mode .tag-chip.active {
+  background-color: #fff;
+  border-color: #fff;
+  color: #0a1628;
+}
+
+body.night-mode .tag-label {
+  color: #777;
+}
+
+body.night-mode a.tag-label:hover {
+  color: #fff;
+}
+
+/* Post layout with Rule 110 sidebar */
+.post-layout {
+  display: flex;
+  margin: -4rem -2rem;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.post-layout .container {
+  flex: 1;
+  min-width: 0;
+}
+
+.rule110-sidebar {
+  display: none;
+  width: 160px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  pointer-events: none;
+  margin-right: 4rem;
+  margin-left: -2rem;
+}
+
+@media (max-width: 900px) {
+  .post-layout {
+    display: block;
+  }
+
+  .rule110-sidebar {
+    display: none;
   }
 }
