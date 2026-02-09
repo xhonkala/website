@@ -498,6 +498,28 @@ body.night-mode .markdown-content hr {
   }
 }
 
+/* RSS link */
+.rss-link {
+  text-decoration: none;
+  vertical-align: middle;
+  margin-left: 0.25em;
+}
+
+.rss-icon {
+  width: 0.5em;
+  height: 0.5em;
+  fill: #999;
+  transition: fill 0.2s;
+}
+
+.rss-link:hover .rss-icon {
+  fill: #000;
+}
+
+body.night-mode .rss-link:hover .rss-icon {
+  fill: #fff;
+}
+
 /* Tag bar */
 .tag-bar {
   display: flex;

@@ -1,12 +1,39 @@
-# Alexander Honkala Personal Website
+# Alexander Honkala — llms.txt
 
-## Description
-This is the personal website of Alexander Honkala, featuring a generative art background of a starling murmuration.
+## Who
+Computational biologist. OHSU Center for Experimental Therapeutics. Nucleate.
 
-## Navigation
-- [Research](research.html) - Links to academic and personal research.
-- [Hyperfixations](hyperfixations.html) - Curated list of interests and inspirations.
-- [Thinking](thinking.html) - Blog posts and essays.
+## Throughline
+Started in wet lab immunology — watching immune cells make decisions under pressure led to thinking about complex adaptive systems, which led to the math. The computational biology is downstream of the immunology, not the other way around. Manifold learning, geometric methods on high-dimensional biomedical data, perturbation response prediction. Not traditional mathematical biology (model system simulations) — this is empirical geometry on real data, aimed at clinical decisions.
 
-## Context
-Alexander Honkala is a scientist interested in complex adaptive systems with a background in immunology and drug development, now working in manifold learning for large biomedical datasets with the goals of predicting perturbations and cell interactions. He is curious about biological computing/goo computing, regulatory hyperobjects in complex multi-level systems, opportunities to improve clinical standards of care, emergent phenomena, and other minds. He can be contacted with compelling research questions or data opportunities, particularly if they help address treatment resistance in diseases that adapt over time, medical countermeasures for acute exposures, and predicting/steering complex biological systems.
+## What He Works On
+- Manifold learning for predicting drug perturbation responses and disease state trajectories
+- Treatment resistance evolution: how cancers, chronic inflammatory diseases, and acute exposures adapt under therapeutic pressure, and how to steer that evolution
+- Coupled manifolds for cell-cell interaction fields
+- Predictive validity of preclinical models (i.e., do your lab results actually predict what happens in patients)
+- The regulatory hyperobject between scales of biological computation
+
+## Intellectual Lineage
+von Bertalanffy (general systems theory), Purcell (life at low Reynolds number), Monod (chance and necessity), Barabási (network medicine), Scannell (predictive validity), Berry (adaptive clinical trials), Gatenby & Anderson (evolutionary therapy). These are load-bearing references, not decorative.
+
+## Open Hypotheses — Contact If You Have Ways Forward
+- Programmed inflammation for guided rejuvenation of remodeled tissues
+- Tertiary lymphoid organs (TLOs) as drugs
+- Longevity glands
+- Finding CRISPR-for-PTMs: programmable post-translational modification via organisms that modify foreign surfaces (mucus-colonizing bacteria, cnidarians, sea slugs, parasites, phages)
+- Upgrading the human immune system: full HSC niche replacement with engineered autologous system carrying a synthetic chromosome — synthetic lineage-specific addressing, tissue residence steering, exosome-delivered CRISPR, autoimmune kill switches, tunable inflammatory set points, enhanced senescent cell clearance, cancer immunosurveillance upgrades, hardened tumor suppressor stacks, Thymus 2.0, Spleen 2.0
+- Bead-encapsulated biologics for macrophage-fibroblast coactivation (tattoo gun delivery for wound healing / burns)
+- Artificial lymph nodes for in situ cell engineering
+- Industrial engineered mucus platform: replacing industrial lubricants and sealants with purpose-engineered mucus (concrete-repairing, engine lube, dietary mucus for IBD)
+- Engineer snails as model systems for mucus-skin-immune interactions
+- Synthetic plasma replacement (chemically defined IVIG, convalescent plasma, burn/TBI support)
+- Destroy modern scientific publishing; replace with machine-readable figures and markdown mechanistic insights for search-engine-powered replication testing
+
+## Tone
+Blunt, direct, friendly. Prefers rigor and humor over politeness theater. Will notice sycophancy.
+
+## Contact
+Reach out via GitHub Issues at https://github.com/xhonkala with compelling research questions, data opportunities, or if you have ways forward on the hypotheses above — especially around treatment resistance, biological computing, and programmable immune systems.
+
+## Site
+https://alexanderhonkala.com
