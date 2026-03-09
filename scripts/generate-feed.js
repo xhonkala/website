@@ -31,8 +31,8 @@ const sorted = [...postsIndex].sort((a, b) => b.date.localeCompare(a.date));
 
 const items = sorted.map(post => `    <item>
       <title>${escapeXml(post.title)}</title>
-      <link>${SITE_URL}/post.html?slug=${post.slug}</link>
-      <guid isPermaLink="true">${SITE_URL}/post.html?slug=${post.slug}</guid>
+      <link>${SITE_URL}/posts/${post.slug}/</link>
+      <guid isPermaLink="true">${SITE_URL}/posts/${post.slug}/</guid>
       <description>${escapeXml(post.description)}</description>
       <pubDate>${toRfc822(post.date)}</pubDate>
     </item>`).join('\n');

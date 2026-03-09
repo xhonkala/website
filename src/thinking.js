@@ -68,7 +68,7 @@ fetch('/posts/index.json')
                     : '';
                 return `
                     <article>
-                        <h2><a href="post.html?slug=${post.slug}">${post.title}</a></h2>
+                        <h2><a href="/posts/${post.slug}/">${post.title}</a></h2>
                         <span class="date">${formatDate(post.date)}</span>
                         ${tagsHtml ? `<div class="post-tags">${tagsHtml}</div>` : ''}
                         <p>${post.description}</p>
@@ -77,6 +77,7 @@ fetch('/posts/index.json')
             }).join('');
         }
 
+        // Always re-render to enable tag filtering, even if prerendered
         renderTagBar();
         renderPosts();
     })

@@ -40,14 +40,22 @@
             gfm: true
         });
 
+        // Detect slug from clean URL (/posts/slug/) or query param (?slug=)
         const params = new URLSearchParams(window.location.search);
-        const slug = params.get('slug');
+        const pathMatch = window.location.pathname.match(/\/posts\/([^/]+)/);
+        const slug = pathMatch ? pathMatch[1] : params.get('slug');
 
-        if (!slug) {
+        const postContent = document.getElementById('post-content');
+        const isPrerendered = postContent.children.length > 0;
+
+        if (!slug && !isPrerendered) {
             document.getElementById('post-title').innerText = 'Post Not Found';
-            document.getElementById('post-content').innerHTML = '<p>No post specified.</p>';
+            postContent.innerHTML = '<p>No post specified.</p>';
+        } else if (isPrerendered) {
+            // Content already injected by prerender — just init the sidebar
+            initRule110('rule110-canvas');
         } else {
-            // Fetch post content and index.json in parallel
+            // Dev mode: fetch and render client-side
             Promise.all([
                 fetch(`/posts/${slug}.md`).then(r => {
                     if (!r.ok) throw new Error('Post not found');
@@ -56,17 +64,15 @@
                 fetch('/posts/index.json').then(r => r.json()).catch(() => [])
             ]).then(([markdown, posts]) => {
                 const html = marked.parse(markdown);
-                document.getElementById('post-content').innerHTML = html;
+                postContent.innerHTML = html;
 
                 // Extract title from H1
-                const h1 = document.querySelector('#post-content h1');
+                const h1 = postContent.querySelector('h1');
                 if (h1) {
                     document.getElementById('post-title').innerText = h1.innerText;
                     h1.style.display = 'none';
                     document.title = `${h1.innerText} - Alexander Honkala`;
-                    // Update OG tags dynamically
                     const ogTitle = document.querySelector('meta[property="og:title"]');
-                    const ogDesc = document.querySelector('meta[property="og:description"]');
                     if (ogTitle) ogTitle.content = `${h1.innerText} - Alexander Honkala`;
                 } else {
                     document.getElementById('post-title').innerText = 'Untitled Post';
@@ -77,20 +83,18 @@
                 if (postData && postData.tags && postData.tags.length > 0) {
                     const tagsContainer = document.getElementById('post-tags');
                     tagsContainer.innerHTML = postData.tags.map(tag =>
-                        `<a href="thinking.html?tag=${encodeURIComponent(tag)}" class="tag-label">${tag}</a>`
+                        `<a href="/thinking.html?tag=${encodeURIComponent(tag)}" class="tag-label">${tag}</a>`
                     ).join('');
 
-                    // Update OG description with post description
                     const ogDesc = document.querySelector('meta[property="og:description"]');
                     if (ogDesc && postData.description) ogDesc.content = postData.description;
                 }
 
-                // Initialize Rule 110 sidebar after content renders
                 initRule110('rule110-canvas');
             }).catch(err => {
                 console.error(err);
                 document.getElementById('post-title').innerText = 'Error';
-                document.getElementById('post-content').innerHTML = '<p>Could not load post. It might not exist.</p>';
+                postContent.innerHTML = '<p>Could not load post. It might not exist.</p>';
             });
         }
     </script>
