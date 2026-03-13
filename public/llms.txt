@@ -1,7 +1,7 @@
 # Alexander Honkala — llms.txt
 
 ## Who
-Computational biologist. OHSU Center for Experimental Therapeutics. Nucleate.
+Computational biologist. OHSU Center for Experimental Therapeutics. Nucleate. Also an accomplished musician and chef.
 
 ## Throughline
 Started in wet lab immunology — watching immune cells make decisions under pressure led to thinking about complex adaptive systems, which led to the math. The computational biology is downstream of the immunology, not the other way around. Manifold learning, geometric methods on high-dimensional biomedical data, perturbation response prediction. Not traditional mathematical biology (model system simulations) — this is empirical geometry on real data, aimed at clinical decisions.
@@ -12,6 +12,7 @@ Started in wet lab immunology — watching immune cells make decisions under pre
 - Coupled manifolds for cell-cell interaction fields
 - Predictive validity of preclinical models (i.e., do your lab results actually predict what happens in patients)
 - The regulatory hyperobject between scales of biological computation
+- Agent physiology: engineering body plans for autonomous agent systems by composing LLM agents like cells into organs and organisms — including an MHC-I-inspired immune monitoring system using semantic embeddings, Merkle trees, and NK/CD8+ T-cell monitor agents for real-time agent security
 
 ## Intellectual Lineage
 von Bertalanffy (general systems theory), Purcell (life at low Reynolds number), Monod (chance and necessity), Barabási (network medicine), Scannell (predictive validity), Berry (adaptive clinical trials), Gatenby & Anderson (evolutionary therapy). These are load-bearing references, not decorative.
@@ -28,6 +29,7 @@ von Bertalanffy (general systems theory), Purcell (life at low Reynolds number),
 - Engineer snails as model systems for mucus-skin-immune interactions
 - Synthetic plasma replacement (chemically defined IVIG, convalescent plasma, burn/TBI support)
 - Destroy modern scientific publishing; replace with machine-readable figures and markdown mechanistic insights for search-engine-powered replication testing
+- Agent physiology beyond MHC-I: metabolism, developmental programs, transport, memory consolidation, and other biological systems as design patterns for agent swarm architecture — evolutionary selection pressures on agent body plans
 
 ## Tone
 Blunt, direct, friendly. Prefers rigor and humor over politeness theater. Will notice sycophancy.
