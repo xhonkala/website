@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
+import { Resvg } from '@resvg/resvg-js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
@@ -108,6 +109,7 @@ for (const post of postsIndex) {
     html = setMetaTag(html, 'og:description', post.description || title);
     html = setMetaTag(html, 'description', post.description || title);
     html = setMetaTag(html, 'og:url', `${SITE_URL}/posts/${post.slug}/`);
+    html = setMetaTag(html, 'og:image', `${SITE_URL}/posts/${post.slug}/og.png`);
 
     // Inject rendered content
     html = injectIntoMain(html, withHiddenH1, '#post-content');
@@ -199,5 +201,94 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 writeDist('robots.txt', robotsTxt);
 console.log('Generated: robots.txt');
+
+// --- 6. Generate social card images ---
+
+function wrapText(text, maxCharsPerLine) {
+    const words = text.split(' ');
+    const lines = [];
+    let current = '';
+    for (const word of words) {
+        if (current && (current + ' ' + word).length > maxCharsPerLine) {
+            lines.push(current);
+            current = word;
+        } else {
+            current = current ? current + ' ' + word : word;
+        }
+    }
+    if (current) lines.push(current);
+    return lines;
+}
+
+function escapeXmlAttr(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function generateCardSvg(title, description, date) {
+    const titleLines = wrapText(title, 32);
+    const descLines = wrapText(description, 48);
+
+    const titleY = 220;
+    const titleLineHeight = 52;
+    const titleElements = titleLines.map((line, i) =>
+        `<text x="80" y="${titleY + i * titleLineHeight}" font-size="44" font-weight="bold" fill="#111">${escapeXmlAttr(line)}</text>`
+    ).join('\n    ');
+
+    const descStartY = titleY + titleLines.length * titleLineHeight + 30;
+    const descElements = descLines.map((line, i) =>
+        `<text x="80" y="${descStartY + i * 28}" font-size="20" fill="#666">${escapeXmlAttr(line)}</text>`
+    ).join('\n    ');
+
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+    const [year, month] = date.split('-');
+    const dateStr = `${monthNames[parseInt(month) - 1]} ${year}`;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" font-family="'Courier New', Courier, monospace">
+  <rect width="1200" height="630" fill="#fff"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#222"/>
+  <text x="80" y="100" font-size="18" fill="#999" letter-spacing="3">ALEXANDER HONKALA</text>
+  <line x1="80" y1="120" x2="400" y2="120" stroke="#ddd" stroke-width="1"/>
+    ${titleElements}
+    ${descElements}
+  <text x="80" y="580" font-size="16" fill="#aaa">${dateStr}</text>
+  <text x="1120" y="580" text-anchor="end" font-size="16" fill="#aaa">alexanderhonkala.com</text>
+</svg>`;
+}
+
+for (const post of postsIndex) {
+    const svg = generateCardSvg(post.title, post.description, post.date);
+    const resvg = new Resvg(svg, {
+        fitTo: { mode: 'width', value: 1200 },
+        font: { defaultFontFamily: 'Courier New' },
+    });
+    const png = resvg.render().asPng();
+    const cardPath = `posts/${post.slug}/og.png`;
+    writeDist(cardPath, png);
+    console.log(`Generated social card: ${cardPath}`);
+}
+
+// --- 7. Generate llms-full.txt ---
+
+const llmsBase = readFileSync(join(publicDir, 'llms.txt'), 'utf-8');
+
+const postContents = sortedPosts.map(post => {
+    const mdPath = join(publicDir, 'posts', `${post.slug}.md`);
+    if (!existsSync(mdPath)) return '';
+    const markdown = readFileSync(mdPath, 'utf-8');
+    return `## ${post.title} (${post.date})\n\n${markdown.trim()}`;
+}).filter(Boolean).join('\n\n---\n\n');
+
+const llmsFull = `${llmsBase.trim()}
+
+---
+
+# Posts
+
+${postContents}
+`;
+
+writeDist('llms-full.txt', llmsFull);
+console.log('Generated: llms-full.txt');
 
 console.log('\nPrerender complete.');
