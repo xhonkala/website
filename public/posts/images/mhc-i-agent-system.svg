@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 640" font-family="'Courier New', Courier, monospace" font-size="12">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c62828"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e65100"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="640" fill="#fff" rx="4"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">MHC-I Agent State Attestation System</text>
+
+  <!-- ═══════════════ WORKER AGENTS ═══════════════ -->
+  <rect x="80" y="58" width="150" height="74" rx="8" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="155" y="84" text-anchor="middle" font-weight="bold" fill="#1565c0">Worker Agent 1</text>
+  <text x="155" y="102" text-anchor="middle" font-size="10" fill="#555">task execution</text>
+  <text x="155" y="118" text-anchor="middle" font-size="10" fill="#555">+ self-attestation</text>
+
+  <rect x="270" y="58" width="150" height="74" rx="8" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="345" y="84" text-anchor="middle" font-weight="bold" fill="#1565c0">Worker Agent 2</text>
+  <text x="345" y="102" text-anchor="middle" font-size="10" fill="#555">task execution</text>
+  <text x="345" y="118" text-anchor="middle" font-size="10" fill="#555">+ self-attestation</text>
+
+  <rect x="460" y="58" width="150" height="74" rx="8" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="535" y="84" text-anchor="middle" font-weight="bold" fill="#1565c0">Worker Agent N</text>
+  <text x="535" y="102" text-anchor="middle" font-size="10" fill="#555">task execution</text>
+  <text x="535" y="118" text-anchor="middle" font-size="10" fill="#555">+ self-attestation</text>
+
+  <!-- Arrows from workers down -->
+  <line x1="155" y1="132" x2="155" y2="175" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="345" y1="132" x2="345" y2="175" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="535" y1="132" x2="535" y2="175" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- "every n steps" label -->
+  <text x="580" y="160" font-size="10" fill="#888" font-style="italic">every n steps</text>
+
+  <!-- ═══════════════ ATTESTATION PAYLOAD ═══════════════ -->
+  <rect x="90" y="180" width="510" height="90" rx="6" fill="#fff8e1" stroke="#ffcc02" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="345" y="204" text-anchor="middle" font-weight="bold" font-size="13" fill="#f57f17">Attestation Payload</text>
+  <text x="160" y="228" text-anchor="middle" font-size="11" fill="#555">agent_id</text>
+  <text x="160" y="248" text-anchor="middle" font-size="11" fill="#555">timestamp</text>
+  <text x="345" y="228" text-anchor="middle" font-size="11" fill="#555">tool_calls</text>
+  <text x="345" y="248" text-anchor="middle" font-size="11" fill="#555">cot_hash</text>
+  <text x="510" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">semantic_embedding</text>
+  <text x="510" y="248" text-anchor="middle" font-size="9" fill="#888">(nomic embed of reasoning)</text>
+
+  <!-- Arrow down to server -->
+  <line x1="345" y1="270" x2="345" y2="310" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════════ HTTP SERVER ═══════════════ -->
+  <rect x="180" y="315" width="330" height="55" rx="6" fill="#f5f5f5" stroke="#bdbdbd" stroke-width="1.5"/>
+  <text x="345" y="340" text-anchor="middle" font-weight="bold" font-size="13" fill="#333">HTTP Attestation Server</text>
+  <text x="345" y="358" text-anchor="middle" font-size="10" fill="#777">receives, logs, routes attestations</text>
+
+  <!-- Merkle Tree (right of server) -->
+  <rect x="640" y="300" width="140" height="85" rx="6" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="710" y="326" text-anchor="middle" font-weight="bold" fill="#2e7d32">Merkle Tree</text>
+  <text x="710" y="346" text-anchor="middle" font-size="10" fill="#555">per-agent</text>
+  <text x="710" y="362" text-anchor="middle" font-size="10" fill="#555">tamper-proof</text>
+  <text x="710" y="378" text-anchor="middle" font-size="10" fill="#555">history</text>
+
+  <!-- Arrow from server to merkle tree -->
+  <line x1="510" y1="342" x2="634" y2="342" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="568" y="335" text-anchor="middle" font-size="10" fill="#888">append</text>
+
+  <!-- Arrows from server down to monitors -->
+  <line x1="270" y1="370" x2="200" y2="430" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="370" x2="500" y2="430" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Route labels -->
+  <text x="210" y="398" font-size="10" fill="#888">tool_calls</text>
+  <text x="440" y="398" font-size="10" fill="#888">embeddings</text>
+
+  <!-- ═══════════════ NK CELL ═══════════════ -->
+  <rect x="60" y="435" width="260" height="125" rx="8" fill="#fce4ec" stroke="#ef9a9a" stroke-width="1.5"/>
+  <text x="190" y="462" text-anchor="middle" font-weight="bold" font-size="14" fill="#c62828">NK Cell Monitor</text>
+  <line x1="82" y1="472" x2="298" y2="472" stroke="#ef9a9a" stroke-width="0.8"/>
+  <text x="190" y="494" text-anchor="middle" font-size="11" fill="#555">Checks tool calls against</text>
+  <text x="190" y="512" text-anchor="middle" font-size="11" fill="#555">per-agent permission scope</text>
+  <text x="190" y="536" text-anchor="middle" font-size="11" font-weight="bold" fill="#c62828">Unauthorized tool call</text>
+  <text x="190" y="552" text-anchor="middle" font-size="12" font-weight="bold" fill="#b71c1c">INSTANT KILL</text>
+
+  <!-- ═══════════════ CD8+ T-CELL ═══════════════ -->
+  <rect x="380" y="435" width="280" height="125" rx="8" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1.5"/>
+  <text x="520" y="462" text-anchor="middle" font-weight="bold" font-size="14" fill="#6a1b9a">CD8+ T-Cell Monitor</text>
+  <line x1="402" y1="472" x2="638" y2="472" stroke="#ce93d8" stroke-width="0.8"/>
+  <text x="520" y="494" text-anchor="middle" font-size="11" fill="#555">Tracks semantic embedding</text>
+  <text x="520" y="512" text-anchor="middle" font-size="11" fill="#555">similarity over time</text>
+  <text x="520" y="536" text-anchor="middle" font-size="11" font-weight="bold" fill="#6a1b9a">Repetition or high drift</text>
+  <text x="520" y="552" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a148c">ISOLATE &#x2192; KILL</text>
+
+  <!-- Kill arrows back up to workers -->
+  <path d="M 75,480 Q 30,480 30,200 Q 30,95 74,95" fill="none" stroke="#c62828" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-red)"/>
+  <path d="M 660,480 Q 720,480 720,200 Q 720,95 616,95" fill="none" stroke="#e65100" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-amber)"/>
+
+  <!-- Kill/isolate labels on return arrows -->
+  <text x="14" y="280" font-size="10" fill="#c62828" font-weight="bold" transform="rotate(-90, 14, 280)">kill signal</text>
+  <text x="736" y="280" font-size="10" fill="#e65100" font-weight="bold" transform="rotate(-90, 736, 280)">isolate / kill</text>
+
+  <!-- ═══════════════ LEGEND ═══════════════ -->
+  <rect x="60" y="585" width="700" height="40" rx="4" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <circle cx="85" cy="605" r="6" fill="#e3f2fd" stroke="#90caf9" stroke-width="1"/>
+  <text x="97" y="609" font-size="10" fill="#555">Worker</text>
+
+  <circle cx="165" cy="605" r="6" fill="#fce4ec" stroke="#ef9a9a" stroke-width="1"/>
+  <text x="177" y="609" font-size="10" fill="#555">NK Cell</text>
+
+  <circle cx="250" cy="605" r="6" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1"/>
+  <text x="262" y="609" font-size="10" fill="#555">CD8+ T-Cell</text>
+
+  <rect x="355" y="598" width="14" height="14" rx="2" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="375" y="609" font-size="10" fill="#555">Merkle Tree</text>
+
+  <line x1="470" y1="605" x2="498" y2="605" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="506" y="609" font-size="10" fill="#555">data flow</text>
+
+  <line x1="590" y1="605" x2="618" y2="605" stroke="#c62828" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-red)"/>
+  <text x="626" y="609" font-size="10" fill="#555">kill / isolate</text>
+</svg>

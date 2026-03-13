@@ -1,5 +1,12 @@
 [
   {
+    "slug": "agent-physiology",
+    "title": "Agent Physiology",
+    "date": "2026-03",
+    "description": "Engineering body plans for autonomous agent systems",
+    "tags": ["agents", "systems-biology", "security"]
+  },
+  {
     "slug": "adsr-perturbation-envelopes",
     "title": "ADSR Perturbation Response Envelopes",
     "date": "2026-02",
