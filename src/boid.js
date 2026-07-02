@@ -1,3 +1,26 @@
+// Viriditas palette — each species has a day color (deepened so it reads on the
+// paper-white background) and a night color (the true pastel, on forest-ink).
+// Gold is the accent thread woven through the greens (~1 in GOLD_EVERY boids).
+const PALETTE = [
+    { day: { r: 143, g: 188, b: 143 }, night: { r: 191, g: 216, b: 184 } }, // sage
+    { day: { r: 109, g: 174, b: 143 }, night: { r: 168, g: 213, b: 186 } }, // celadon
+    { day: { r: 163, g: 197, b: 133 }, night: { r: 205, g: 235, b: 216 } }, // moss
+];
+const GOLD = { day: { r: 201, g: 180, b: 88 }, night: { r: 228, g: 217, b: 160 } };
+const GOLD_EVERY = 8;
+
+function jitter(color, amount) {
+    const off = () => Math.floor((Math.random() - 0.5) * amount);
+    const r = off(), g = off(), b = off();
+    return {
+        r: Math.max(0, Math.min(255, color.r + r)),
+        g: Math.max(0, Math.min(255, color.g + g)),
+        b: Math.max(0, Math.min(255, color.b + b)),
+    };
+}
+
+let boidCounter = 0;
+
 export class Boid {
     constructor(x, y) {
         this.position = { x, y };
@@ -7,19 +30,19 @@ export class Boid {
         };
         this.acceleration = { x: 0, y: 0 };
         this.maxForce = 0.05; // Reduced for smoother turning
-        this.maxSpeed = 2.5;  // Reduced speed as requested
-        this.size = Math.random() * 1.0 + 0.3; // Variable size for depth effect
-        // Grey color with variation (range: 160-210 for lighter greys)
-        const greyBase = Math.floor(Math.random() * 50) + 160;
-        // Add slight color tint variation
-        const rOffset = Math.floor((Math.random() - 0.5) * 20);
-        const gOffset = Math.floor((Math.random() - 0.5) * 20);
-        const bOffset = Math.floor((Math.random() - 0.5) * 20);
-        this.color = {
-            r: Math.max(0, Math.min(255, greyBase + rOffset)),
-            g: Math.max(0, Math.min(255, greyBase + gOffset)),
-            b: Math.max(0, Math.min(255, greyBase + bOffset))
-        };
+
+        // Depth ∈ [0,1] drives size, opacity, and speed for a parallax volume.
+        this.depth = Math.random();
+        this.size = 0.5 + this.depth * 2.0;        // ~0.5–2.5px
+        this.alpha = 0.35 + this.depth * 0.65;     // far = faint, near = solid
+        this.maxSpeed = 2.5 * (0.75 + this.depth * 0.4); // near boids move quicker
+
+        // Pick a species; every GOLD_EVERY-th boid gets the gold accent.
+        const isGold = boidCounter % GOLD_EVERY === 0;
+        boidCounter++;
+        const base = isGold ? GOLD : PALETTE[Math.floor(Math.random() * PALETTE.length)];
+        this.dayColor = jitter(base.day, 20);
+        this.nightColor = jitter(base.night, 20);
     }
 
     update() {
@@ -57,15 +80,9 @@ export class Boid {
     }
 
     draw(ctx, isNightMode = false) {
-        if (isNightMode) {
-            // Night mode: white/light boids
-            const lightness = 255 - Math.floor((this.color.r + this.color.g + this.color.b) / 3 - 80);
-            ctx.fillStyle = `rgb(${lightness}, ${lightness}, ${lightness})`;
-        } else {
-            // Day mode: grey boids with color variation
-            ctx.fillStyle = `rgb(${this.color.r}, ${this.color.g}, ${this.color.b})`;
-        }
-
+        const c = isNightMode ? this.nightColor : this.dayColor;
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = `rgb(${c.r}, ${c.g}, ${c.b})`;
         ctx.beginPath();
         ctx.arc(this.position.x, this.position.y, this.size, 0, Math.PI * 2);
         ctx.fill();

@@ -50,6 +50,13 @@ function setTitle(html, title) {
     return html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
 }
 
+function setCanonical(html, url) {
+    return html.replace(
+        /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+        `$1${url}$2`
+    );
+}
+
 // --- 1. Prerender content pages (about, research, hyperfixations) ---
 
 const contentPages = ['about', 'research', 'hyperfixations'];
@@ -110,6 +117,7 @@ for (const post of postsIndex) {
     html = setMetaTag(html, 'description', post.description || title);
     html = setMetaTag(html, 'og:url', `${SITE_URL}/posts/${post.slug}/`);
     html = setMetaTag(html, 'og:image', `${SITE_URL}/posts/${post.slug}/og.png`);
+    html = setCanonical(html, `${SITE_URL}/posts/${post.slug}/`);
 
     // Inject rendered content
     html = injectIntoMain(html, withHiddenH1, '#post-content');
@@ -239,10 +247,13 @@ function generateCardSvg(title, description, date) {
         `<text x="80" y="${descStartY + i * 28}" font-size="20" fill="#666">${escapeXmlAttr(line)}</text>`
     ).join('\n    ');
 
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'];
-    const [year, month] = date.split('-');
-    const dateStr = `${monthNames[parseInt(month) - 1]} ${year}`;
+    let dateStr = '';
+    if (date) {
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'];
+        const [year, month] = date.split('-');
+        dateStr = `${monthNames[parseInt(month) - 1]} ${year}`;
+    }
 
     return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" font-family="'Courier New', Courier, monospace">
   <rect width="1200" height="630" fill="#fff"/>
@@ -256,17 +267,28 @@ function generateCardSvg(title, description, date) {
 </svg>`;
 }
 
-for (const post of postsIndex) {
-    const svg = generateCardSvg(post.title, post.description, post.date);
+function renderCardPng(svg) {
     const resvg = new Resvg(svg, {
         fitTo: { mode: 'width', value: 1200 },
         font: { defaultFontFamily: 'Courier New' },
     });
-    const png = resvg.render().asPng();
-    const cardPath = `posts/${post.slug}/og.png`;
-    writeDist(cardPath, png);
-    console.log(`Generated social card: ${cardPath}`);
+    return resvg.render().asPng();
 }
+
+for (const post of postsIndex) {
+    const svg = generateCardSvg(post.title, post.description, post.date);
+    writeDist(`posts/${post.slug}/og.png`, renderCardPng(svg));
+    console.log(`Generated social card: posts/${post.slug}/og.png`);
+}
+
+// Default site social card (homepage + content pages point at /og.png)
+const homeCardSvg = generateCardSvg(
+    'Alexander Honkala',
+    'Computational biologist — manifold learning, treatment resistance, and experimental therapeutics.',
+    ''
+);
+writeDist('og.png', renderCardPng(homeCardSvg));
+console.log('Generated social card: og.png');
 
 // --- 7. Generate llms-full.txt ---
 

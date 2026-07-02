@@ -13,6 +13,9 @@ public/feed.xml
 dist-ssr
 *.local
 
+# Brainstorming visual companion sessions
+.superpowers/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

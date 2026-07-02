@@ -5,8 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #ffffff;
-  /* Start white as requested */
+  background-color: #fafbf7;
+  /* Paper-white — matches the murmuration canvas day background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -229,6 +229,12 @@ article h2 a:hover {
 /* Night Mode Styles */
 body.night-mode {
   background-color: #0a1628;
+}
+
+/* Homepage murmuration night background — forest-ink, matches the canvas.
+   Scoped away from content pages so they keep the navy above. */
+body.night-mode:not(.content-page) {
+  background-color: #0f1b14;
 }
 
 body.night-mode #ui-layer {

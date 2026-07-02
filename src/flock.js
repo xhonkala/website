@@ -15,6 +15,11 @@ export class Flock {
         this.boids.push(new Boid(Math.random() * this.width, Math.random() * this.height));
     }
 
+    // Sort far→near once so nearer (larger, brighter) boids paint on top.
+    sortByDepth() {
+        this.boids.sort((a, b) => a.depth - b.depth);
+    }
+
     resize(width, height) {
         this.width = width;
         this.height = height;
@@ -38,6 +43,7 @@ export class Flock {
         for (let boid of this.boids) {
             boid.draw(ctx, isNightMode);
         }
+        ctx.globalAlpha = 1; // reset so trail fill isn't tinted by last boid's alpha
     }
 
     flock(boid, target, repulsionTargets) {

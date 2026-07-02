@@ -12,6 +12,19 @@ canvas.height = height;
 
 const flock = new Flock(width, height);
 
+// Background + trail settings per mode. Trails are painted by filling the frame
+// with a translucent background color instead of clearing it; a lighter day
+// background needs a faster fade (higher alpha) or trails smear into mud.
+const MODES = {
+  day: { bg: 'rgb(250, 251, 247)', fade: 'rgba(250, 251, 247, 0.12)' },   // paper-white #fafbf7
+  night: { bg: 'rgb(15, 27, 20)', fade: 'rgba(15, 27, 20, 0.07)' },       // forest-ink #0f1b14
+};
+
+// Allow ?mode=day / ?mode=night to force a mode (and freeze the time-based
+// auto-switch) so both looks are checkable at any hour.
+const forcedMode = new URLSearchParams(window.location.search).get('mode');
+const modeIsForced = forcedMode === 'day' || forcedMode === 'night';
+
 // Night mode detection based on Pacific Time
 function isNightInPacific() {
   const now = new Date();
@@ -20,10 +33,13 @@ function isNightInPacific() {
   return hour >= 19 || hour < 6;
 }
 
-let isNightMode = isNightInPacific();
+function computeNight() {
+  return modeIsForced ? forcedMode === 'night' : isNightInPacific();
+}
 
-function updateNightMode() {
-  isNightMode = isNightInPacific();
+let isNightMode = computeNight();
+
+function applyBodyMode() {
   if (isNightMode) {
     document.body.classList.add('night-mode');
   } else {
@@ -31,19 +47,45 @@ function updateNightMode() {
   }
 }
 
-updateNightMode();
-setInterval(updateNightMode, 60000);
+// Paint the whole canvas opaque with the current background (init, resize, and
+// on a mode flip — so old-color ghost trails don't linger through the fade).
+function paintBackground() {
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = MODES[isNightMode ? 'night' : 'day'].bg;
+  ctx.fillRect(0, 0, width, height);
+}
+
+applyBodyMode();
+paintBackground();
+
+function updateNightMode() {
+  const next = computeNight();
+  if (next !== isNightMode) {
+    isNightMode = next;
+    applyBodyMode();
+    paintBackground(); // hard clear on transition
+  }
+}
+
+if (!modeIsForced) {
+  setInterval(updateNightMode, 60000);
+}
 
 const boidCount = window.innerWidth < 768 ? 2000 : 5000;
 for (let i = 0; i < boidCount; i++) {
   flock.addBoid();
 }
+flock.sortByDepth();
 
 let mouse = { x: width / 2, y: height / 2 };
 let repulsionTargets = [];
 
 function animate() {
-  ctx.clearRect(0, 0, width, height);
+  // Trail effect: fade the previous frame toward the background instead of clearing.
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = MODES[isNightMode ? 'night' : 'day'].fade;
+  ctx.fillRect(0, 0, width, height);
+
   flock.update(mouse, repulsionTargets);
   flock.draw(ctx, isNightMode);
   requestAnimationFrame(animate);
@@ -57,6 +99,7 @@ window.addEventListener('resize', () => {
   canvas.width = width;
   canvas.height = height;
   flock.resize(width, height);
+  paintBackground();
 });
 
 window.addEventListener('mousemove', (e) => {
