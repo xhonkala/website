@@ -25,17 +25,17 @@ export class Boid {
     constructor(x, y) {
         this.position = { x, y };
         this.velocity = {
-            x: (Math.random() - 0.5) * 4,
-            y: (Math.random() - 0.5) * 4
+            x: (Math.random() - 0.5) * 1.6,
+            y: (Math.random() - 0.5) * 1.6
         };
         this.acceleration = { x: 0, y: 0 };
-        this.maxForce = 0.05; // Reduced for smoother turning
+        this.maxForce = 0.02; // Reduced for smoother turning
 
         // Depth ∈ [0,1] drives size, opacity, and speed for a parallax volume.
         this.depth = Math.random();
         this.size = 0.5 + this.depth * 2.0;        // ~0.5–2.5px
         this.alpha = 0.35 + this.depth * 0.65;     // far = faint, near = solid
-        this.maxSpeed = 2.5 * (0.75 + this.depth * 0.4); // near boids move quicker
+        this.maxSpeed = 1.0 * (0.75 + this.depth * 0.4); // near boids move quicker
 
         // Pick a species; every GOLD_EVERY-th boid gets the gold accent.
         const isGold = boidCounter % GOLD_EVERY === 0;
